@@ -1,14 +1,22 @@
-F90= gfortran
+FCFLAGS = -ffree-form
+F90= x86_64-apple-darwin14.3.0-gfortran-5
 CFLAGS= -O3
 CC= gcc
 
-OBJS=Example.o  FortranCode.o
+SOURCES= Example.c FortranCode.f90
+OBJECTS = $(addsuffix .o,$(basename $(SOURCES)))
+PRODUCT= merged.out
 
 
-cpp-exe: $(OBJS)
-	$(CC) -o merged.out $(OBJS)
-.c.o:
-	$(CC) $(CFLAGS) -c $<
+$(PRODUCT): $(OBJECTS)
+	$(CC) -o $@ $^
 
-.f.o:
-	$(F90) -c  $<	
+%.o: %.c
+	$(CC) -c $(CFLAGS) -o $@ $<
+%.o: %.f90 
+	$(F90) -c $(FCFLAGS) -o $@ $<
+
+
+
+clean:
+	rm -f *.o

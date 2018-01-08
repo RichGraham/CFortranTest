@@ -1,16 +1,23 @@
-!module GP_variables
-!  integer :: nTraining=72 
-!end module GP_variables
-
-
-
+module GP_variables
+  integer :: nTraining
+end module GP_variables
 
 double precision function PES( rab)
   !! Takes in rab in Angstrom
- ! use PES_details
+  use GP_variables
   implicit none
   double precision rab
 
-  PES=rab**2
+  PES=nTraining*rab**2
 
 end function PES
+
+
+subroutine setVars
+  use GP_variables
+  implicit none
+
+  nTraining=3
+  write(6,*) 'Hello from setVars'
+  
+end subroutine setVars
