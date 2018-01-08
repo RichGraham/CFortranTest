@@ -1,9 +1,14 @@
-# simple make file
-SOURCES=FortranCode.f90
-PRODUCT=FC.fort
+F90= gfortran
+CFLAGS= -O3
+CC= gcc
+
+OBJS=Example.o  FortranCode.o
 
 
-all: $(PRODUCT)
+cpp-exe: $(OBJS)
+	$(CC) -o merged.out $(OBJS)
+.c.o:
+	$(CC) $(CFLAGS) -c $<
 
-$(PRODUCT) : $(SOURCES)
-	gfortran -o $(PRODUCT) $(SOURCES)
+.f.o:
+	$(F90) -c  $<	
