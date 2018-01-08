@@ -1,6 +1,6 @@
 # simple make file
-SOURCES=PES_GP_Symm.f90 
-PRODUCT=2Ar_PES.out
+SOURCES=FortranCode.f90
+PRODUCT=FC.fort
 
 
 all: $(PRODUCT)
