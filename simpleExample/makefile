@@ -6,7 +6,7 @@ CC= gcc
 
 LIBS_PATH = -L/usr/local/Cellar/gcc/5.1.0/lib/gcc/5
 
-SOURCES= Example.c PES_GP_Symm.f90
+SOURCES= Example.c FortranCode.f90
 OBJECTS = $(addsuffix .o,$(basename $(SOURCES)))
 PRODUCT= merged.out
 

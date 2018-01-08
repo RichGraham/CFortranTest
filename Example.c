@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <fortran.h>
-extern double pes_(double *a);
-extern void setvars_(void);
+//extern double pes_(double *a);
+extern void load_gp_data_(void);
 
 int main()
 {
@@ -10,10 +9,5 @@ int main()
   
   a = 2.0;
 
-    z = pes_(&a); 
-  printf("The result is %lf \n", z);
-
-  setvars_();
-  z = pes_(&a); 
-  printf("The result is %lf \n", z);
+  load_gp_data_();
 }
