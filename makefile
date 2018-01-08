@@ -1,5 +1,5 @@
-FCFLAGS = -ffree-form
-F90= x86_64-apple-darwin14.3.0-gfortran-5
+FCFLAGS = -O3
+F90= gfortran
 CFLAGS= -O3
 CC= gcc
 
@@ -9,7 +9,7 @@ PRODUCT= merged.out
 
 
 $(PRODUCT): $(OBJECTS)
-	$(CC) -o $@ $^
+	$(CC) -lgfortran -o  $@ $^
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
