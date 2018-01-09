@@ -21,19 +21,6 @@ module GP_variables
 end module GP_variables
 
 
- ! Test program
-implicit none
-
-
-integer k,i, choice
-
-
-call load_GP_Data
-call fixedAngleSlice
-
-end
-!
-
 subroutine fixedAngleSlice
   use PES_details
   !use GP_variables
@@ -107,7 +94,7 @@ subroutine load_GP_Data
   open (unit = 7, file = filename)
   do i=1,nTraining
      read (7,*) alpha(i)
-     !!print *,"alpha ",i, alpha(i)
+     !print *,"alpha ",i, alpha(i)
   end do
   close(7)
 
