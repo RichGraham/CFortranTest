@@ -8,14 +8,14 @@ extern void load_gp_co2_ar_data_(void);
 extern double pes_co2_ar_(double *xStar);
 
 extern void load_gp_2co2_data_(void);
-extern double pes_2co2_(double *xStar);
+extern double pes_2co2_(double *rab);
 
 static double sqLength(double *u, double *v);
 
 int main()
 {
   int i,itot=500;
-  double r,z, beta1=0, beta2=0, alpha2=0;
+  double r,z, beta1=0.0*M_PI/4.0, beta2=M_PI/2.0, alpha2=M_PI/2.0;
   double rab[3]={0.0};
   double rDist[9]={0.0};
   double O1[4]={0.0},O2[4]={0.0},O3[4]={0.0},O4[4]={0.0},C1[4]={0.0},C2[4]={0.0};
@@ -27,7 +27,7 @@ int main()
 
   for(i = 1  ;   i <= itot    ;   i++){
     //2Ar
-    r = (  0.5 + 15.0*i/(1.0*itot) );
+    r = (  2.0 + 15.0*i/(1.0*itot) );
 
     //CO2-Ar
     rab[0]= r;
